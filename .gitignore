@@ -1,5 +1,4 @@
-245000.pt
 venv/
 models--openai--clip-vit-base-patch32/
 .locks/
-__pycache__/
+__pycache__/git add model.pt
