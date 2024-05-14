@@ -1,0 +1,5 @@
+245000.pt
+venv/
+models--openai--clip-vit-base-patch32/
+.locks/
+__pycache__/
