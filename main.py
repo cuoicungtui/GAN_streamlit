@@ -14,7 +14,7 @@ args.add('device','cuda')
 args.add('size', 128)
 args.add('r1',10)
 args.add('d_reg_every', 16)
-args.add('ckpt','\245000.pt')
+args.add('ckpt','245000.pt')
 args.add('channel_multiplier', 2)
 args.add('augment_p', 0)
 args.add('ada_target', 0.6)
@@ -28,8 +28,8 @@ g_ema = Generator(
 )
 
 ckpt = torch.load(args.ckpt, map_location=lambda storage, loc: storage)
-    g_ema.load_state_dict(ckpt["g_ema"])
-    g_ema.eval()
+g_ema.load_state_dict(ckpt["g_ema"])
+g_ema.eval()
 
 def gen_image(input_text):
     sample_t = text_encoder(input_text)
@@ -41,14 +41,13 @@ def gen_image(input_text):
         )
 
 
-
 # input_text = "A black and white drawing of a dog running"
 # gen_image(input_text)
 
-
+st.title('Text-to-Image Demo')
 
 with st.form('my_form'):
-    text = st.text_area('Enter text:', 'What are the three key pieces of advice for learning how to code?')
+    text = st.text_area('Enter text:', 'Nhập text vào đây để tạo ra ảnh')
     submitted = st.form_submit_button('Submit')
     if submitted :
        gen_image(text)
